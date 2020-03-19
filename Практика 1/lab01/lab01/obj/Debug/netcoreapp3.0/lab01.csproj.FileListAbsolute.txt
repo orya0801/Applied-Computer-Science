@@ -1,0 +1,11 @@
+E:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.exe
+E:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.deps.json
+E:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.runtimeconfig.json
+E:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.runtimeconfig.dev.json
+E:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.dll
+E:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.pdb
+E:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.csprojAssemblyReference.cache
+E:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.AssemblyInfoInputs.cache
+E:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.AssemblyInfo.cs
+E:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.dll
+E:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.pdb

@@ -1,0 +1,6 @@
+D:\Прикладная информатика\Практика 2\lab02\Lab02\bin\Debug\Lab02.exe.config
+D:\Прикладная информатика\Практика 2\lab02\Lab02\bin\Debug\Lab02.exe
+D:\Прикладная информатика\Практика 2\lab02\Lab02\bin\Debug\Lab02.pdb
+D:\Прикладная информатика\Практика 2\lab02\Lab02\obj\Debug\Lab02.csprojAssemblyReference.cache
+D:\Прикладная информатика\Практика 2\lab02\Lab02\obj\Debug\Lab02.exe
+D:\Прикладная информатика\Практика 2\lab02\Lab02\obj\Debug\Lab02.pdb
