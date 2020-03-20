@@ -4,3 +4,9 @@ D:\Прикладная информатика\Практика 4\Lab04\Lab04\bi
 D:\Прикладная информатика\Практика 4\Lab04\Lab04\obj\Debug\Lab04.csprojAssemblyReference.cache
 D:\Прикладная информатика\Практика 4\Lab04\Lab04\obj\Debug\Lab04.exe
 D:\Прикладная информатика\Практика 4\Lab04\Lab04\obj\Debug\Lab04.pdb
+D:\Прикладная информатика\Практика 4\Lab_04\Lab04\bin\Debug\Lab04.exe.config
+D:\Прикладная информатика\Практика 4\Lab_04\Lab04\bin\Debug\Lab04.exe
+D:\Прикладная информатика\Практика 4\Lab_04\Lab04\bin\Debug\Lab04.pdb
+D:\Прикладная информатика\Практика 4\Lab_04\Lab04\obj\Debug\Lab04.csprojAssemblyReference.cache
+D:\Прикладная информатика\Практика 4\Lab_04\Lab04\obj\Debug\Lab04.exe
+D:\Прикладная информатика\Практика 4\Lab_04\Lab04\obj\Debug\Lab04.pdb

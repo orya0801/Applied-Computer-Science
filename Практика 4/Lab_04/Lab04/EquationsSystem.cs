@@ -27,7 +27,7 @@ namespace Lab04
 
         }
 
-        public void PrintSystem()
+        private void PrintSystem()
         {
             for(int i = 0; i < Rows; i++)
             {
@@ -231,6 +231,8 @@ namespace Lab04
 
         public void Solve()
         {
+            PrintSystem();
+
             if (Rank(true) == Rank(false))
             {
                 int rank = Rank(true);
@@ -244,118 +246,16 @@ namespace Lab04
                 Console.Write("Система совместна и ");
                 if (rank == Columns - 1)
                 {
-                    Console.WriteLine("имеет 1 единственное решение");
-
-                    int nb = Columns - 1;
-
-                    for (int n = Rows - 1; n >= 0; n--)
-                    {
-                        double sum = 0;
-                        for (int i = n + 1; i < nb; i++)
-                            sum += vector[i] * Matrix[n, i];
-                        vector[n] = (Matrix[n, nb] - sum) / Matrix[n, n];
-                    }
+                    SolveDefinedSystem();
                 }
                 else
                 {
-                    Console.WriteLine("имеет бесконечное множество решений");
-
-                    int[] baseVar = FindBaseVariables(rank);
-                    bool[] free = new bool[vector.Length];
-
-
-                    Console.Write("Базисные переменные: ");
-
-                    for (int i = 0; i < baseVar.Length; i++)
-                            Console.Write($"x{baseVar[i] + 1} ");
-                    Console.WriteLine();
-
-                    Console.Write("Свободные переменные: ");
-                    
-                    for(int i = 0; i < vector.Length; i++)
-                    {
-                        int count = 0;
-
-                        for(int j = 0; j < baseVar.Length; j++)
-                        {
-                            if(i != baseVar[j])
-                            {
-                                count++;
-                            }
-                        }
-
-                        if (count == baseVar.Length)
-                            free[i] = true;
-                    }
-
-                    for (int i = 0; i < vector.Length; i++)
-                    {
-                        if (free[i])
-                            Console.Write($"x{i + 1} ");
-                    }
-
-                    Console.WriteLine();
-
-
-                    Console.WriteLine("Введите значения свободных переменных для получения частного решения: ");
-                    for (int i = 0; i < vector.Length; i++)
-                    {
-                        if (free[i])
-                        { 
-                            Console.Write($"x{i + 1} = ");
-                            vector[i] = double.Parse(Console.ReadLine());
-                        }                           
-                    }
-
-                    int new_rows = Rows;
-
-                    for (int i = 0; i < Rows; i++)
-                    {
-                        int count = 0;
-
-                        for (int j = 0; j < Columns - 1; j++)
-                        {
-                            if (Matrix[i, j] == 0) count++;
-                        }
-
-                        if (count == Columns - 1) new_rows--;
-                    }
-
-                    double[] sum = new double[new_rows];
-
-                    for (int n = new_rows - 1; n >= 0; n--)
-                    {
-                        for (int i = n + 1; i < Columns - 1; i++)
-                            sum[n] += vector[i] * Matrix[n, i];
-                    }
-
-                    for (int n = new_rows - 1; n >= 0; n--)
-                    {
-                        if (!free[n])
-                        {
-                            if (Matrix[n, n] != 0)
-                                vector[n] = (Matrix[n, Columns - 1] - sum[n]) / Matrix[n, n];
-                            else
-                            {
-                                for (int i = n - 1; i >= 0; i--)
-                                {
-                                    sum[i] = 0;
-                                    for (int j = 0; j < Columns - 1; j++)
-                                        sum[i] += vector[j] * Matrix[i, j];
-                                    vector[n] = (Matrix[i, Columns - 1] - sum[i]) / Matrix[i, n];
-                                    if (!Double.IsNaN(vector[n]))
-                                    {
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }        
+                    SolveIndefinedSystem(rank);
 
                 }
 
 
-               PrintVector();
+                PrintVector();
             }
 
             else
@@ -364,5 +264,136 @@ namespace Lab04
             }      
         }
 
+        private void SolveIndefinedSystem(int rank)
+        {
+            Console.WriteLine("имеет бесконечное множество решений");
+
+            int[] baseVar = FindBaseVariables(rank);
+            bool[] free = new bool[vector.Length];
+
+            FindBaseAndFreeVariables(baseVar, free);
+
+            SetValueForFreeVariables(free);
+
+            FindBaseVariables(free);
+        }
+
+        private void FindBaseVariables(bool[] free)
+        {
+            int new_rows = CountNonZeroRows();
+
+            double[] sum = new double[new_rows];
+
+            for (int n = new_rows - 1; n >= 0; n--)
+            {
+                for (int i = n + 1; i < Columns - 1; i++)
+                    sum[n] += vector[i] * Matrix[n, i];
+            }
+
+            for (int n = new_rows - 1; n >= 0; n--)
+            {
+                if (!free[n])
+                {
+                    if (Matrix[n, n] != 0)
+                        vector[n] = (Matrix[n, Columns - 1] - sum[n]) / Matrix[n, n];
+                    else
+                    {
+                        for (int i = n - 1; i >= 0; i--)
+                        {
+                            sum[i] = 0;
+                            for (int j = 0; j < Columns - 1; j++)
+                                sum[i] += vector[j] * Matrix[i, j];
+                            vector[n] = (Matrix[i, Columns - 1] - sum[i]) / Matrix[i, n];
+                            if (!Double.IsNaN(vector[n]))
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private int CountNonZeroRows()
+        {
+            int new_rows = Rows;
+
+            for (int i = 0; i < Rows; i++)
+            {
+                int count = 0;
+
+                for (int j = 0; j < Columns - 1; j++)
+                {
+                    if (Matrix[i, j] == 0) count++;
+                }
+
+                if (count == Columns - 1) new_rows--;
+            }
+
+            return new_rows;
+        }
+
+        private void SetValueForFreeVariables(bool[] free)
+        {
+            Console.WriteLine("Введите значения свободных переменных для получения частного решения: ");
+            for (int i = 0; i < vector.Length; i++)
+            {
+                if (free[i])
+                {
+                    Console.Write($"x{i + 1} = ");
+                    vector[i] = double.Parse(Console.ReadLine());
+                }
+            }
+        }
+
+        private void FindBaseAndFreeVariables(int[] baseVar, bool[] free)
+        {
+            Console.Write("Базисные переменные: ");
+
+            for (int i = 0; i < baseVar.Length; i++)
+                Console.Write($"x{baseVar[i] + 1} ");
+            Console.WriteLine();
+
+            Console.Write("Свободные переменные: ");
+
+            for (int i = 0; i < vector.Length; i++)
+            {
+                int count = 0;
+
+                for (int j = 0; j < baseVar.Length; j++)
+                {
+                    if (i != baseVar[j])
+                    {
+                        count++;
+                    }
+                }
+
+                if (count == baseVar.Length)
+                    free[i] = true;
+            }
+
+            for (int i = 0; i < vector.Length; i++)
+            {
+                if (free[i])
+                    Console.Write($"x{i + 1} ");
+            }
+
+            Console.WriteLine();
+        }
+
+        private void SolveDefinedSystem()
+        {
+            Console.WriteLine("имеет 1 единственное решение");
+
+            int nb = Columns - 1;
+
+            for (int n = Rows - 1; n >= 0; n--)
+            {
+                double sum = 0;
+                for (int i = n + 1; i < nb; i++)
+                    sum += vector[i] * Matrix[n, i];
+                vector[n] = (Matrix[n, nb] - sum) / Matrix[n, n];
+            }
+        }
     }
 }
