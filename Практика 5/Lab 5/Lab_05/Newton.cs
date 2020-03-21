@@ -45,7 +45,6 @@ namespace Lab_05
 
         #region Methods
 
-        #region JacobianSettings
         private Expr[,] FindJacobian()
         {
             Expr[,] jac = new Expr[Equations.Functions.GetLength(0), Equations.Functions.GetLength(1)];
@@ -84,7 +83,6 @@ namespace Lab_05
 
             return revJac;
         }
-        #endregion
 
         public void Solve()
         {

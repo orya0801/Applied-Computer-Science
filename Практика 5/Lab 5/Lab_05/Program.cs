@@ -10,10 +10,12 @@ namespace Lab_05
     {
         static void Main(string[] args)
         {
+            //Используемые переменныые
             var x1 = Expr.Variable("x1");
             var x2 = Expr.Variable("x2");
             var x3 = Expr.Variable("x3");
 
+            //Пример 1
             var values1 = new Dictionary<string, FloatingPoint>
             {
                 { "x1", 0.9},
@@ -35,6 +37,7 @@ namespace Lab_05
 
             newton1.Solve();
 
+            //Пример 2
             var values2 = new Dictionary<string, FloatingPoint>
             {
                 {"x1", 0.5 },
@@ -58,7 +61,7 @@ namespace Lab_05
 
             system2.Print();
 
-            var newton2 = new Newton(system2, values2, 0.005);
+            var newton2 = new Newton(system2, values2, 0.0001);
 
             newton2.Solve();
 
