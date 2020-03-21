@@ -23,11 +23,16 @@ namespace Lab_05
             {
                 for (int j = 0; j < Functions.GetLength(1); j++)
                 {
-                    Console.Write(Functions[i, j]);
+                    if(j != Functions.GetLength(1) - 1)
+                        Console.Write($"({Functions[i, j]}) + ");
+                    else
+                        Console.Write($"({Functions[i, j]})");
                 }
 
                 Console.WriteLine(" = 0");
             }
+
+            Console.WriteLine();
         }
 
     }

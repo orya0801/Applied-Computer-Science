@@ -27,7 +27,7 @@ D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\b
 D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\bin\Debug\tr\FSharp.Core.resources.dll
 D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\bin\Debug\zh-Hans\FSharp.Core.resources.dll
 D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\bin\Debug\zh-Hant\FSharp.Core.resources.dll
-D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\obj\Debug\Lab_05.csprojAssemblyReference.cache
 D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\obj\Debug\Lab_05.csproj.CopyComplete
 D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\obj\Debug\Lab_05.exe
 D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\obj\Debug\Lab_05.pdb
+D:\Прикладная информатика\Практика 5\Lab 5\Lab_05\obj\Debug\Lab_05.csprojAssemblyReference.cache
