@@ -42,9 +42,9 @@ namespace Lab_07
             answers.Add(answer1);
             answers.Add(answer2);
 
-            PrintRealAnswer(answers, initialVal1, section1, 10);
-
             rungeKutta1.Solve();
+
+            PrintRealAnswer(answers, initialVal1, section1, 10);
 
             Console.ReadKey();
         }

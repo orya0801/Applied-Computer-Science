@@ -45,7 +45,7 @@ namespace Lab_07
 
         public void Solve()
         {
-            Console.WriteLine("Решение методом Рунге-Кутты:\n");
+            PrintInfo();
 
             currValues = InitialСondition;
 
@@ -165,13 +165,30 @@ namespace Lab_07
 
         private void PrintInfo()
         {
-            Console.WriteLine($"Начальное условие: y({InitialСondition["x"]}) = {InitialСondition["y"]}");
+            int i = 1;
+            foreach(var eq in Equation.Functions)
+            {
+                Console.WriteLine($"y{i}' = {eq.ToString()}");
+                i++;
+            }
+
+            Console.WriteLine($"Начальное условие: ");
+                
+            foreach(var cond in InitialСondition)
+            {
+                if(cond.Key == "x")
+                    Console.WriteLine($"\t{cond.Key} = {cond.Value.RealValue}");
+                else
+                    Console.WriteLine($"\t{cond.Key}({InitialСondition["x"].RealValue}) = {cond.Value.RealValue}");
+            }
 
             Console.WriteLine($"Рассматриваемый интервал: [{Section[0]}; {Section[1]}]");
 
             Console.WriteLine($"Количество делений: {Divisions}");
 
             Console.WriteLine($"Величина шага: {Step}");
+
+            Console.WriteLine("Решение методом Рунге-Кутты:\n");
         }
     }
 }
