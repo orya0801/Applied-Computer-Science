@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Expr = MathNet.Symbolics.SymbolicExpression;
 
 namespace Lab_07

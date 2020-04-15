@@ -1,9 +1,6 @@
 ﻿using MathNet.Symbolics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Expr = MathNet.Symbolics.SymbolicExpression;
 
 namespace Lab_07
@@ -70,11 +67,12 @@ namespace Lab_07
                 foreach (var val in currValues.Values)
                     Console.Write($"{val.RealValue:0.0000}\t");
 
+                //Нахождение k1 для каждого уравнения
                 for (int i = 0; i < Equation.Functions.Count; i++)
                 {
                     k1[i] = Step * Equation.Functions[i].Evaluate(currValues).RealValue;
                 }
-
+                //Нахождение k2 для каждого уравнения
                 for (int i = 0; i < Equation.Functions.Count; i++)
                 {
                     int j = 0;
@@ -93,7 +91,7 @@ namespace Lab_07
                     }
                     k2[i] = Step * Equation.Functions[i].Evaluate(k2_var).RealValue;
                 }
-
+                //Нахождение k3 для каждого уравнения
                 for (int i = 0; i < Equation.Functions.Count; i++)
                 {
                     int j = 0;
@@ -112,7 +110,7 @@ namespace Lab_07
                     }
                     k3[i] = Step * Equation.Functions[i].Evaluate(k3_var).RealValue;
                 }
-
+                //Нахождение k4 для каждого уравнения
                 for (int i = 0; i < Equation.Functions.Count; i++)
                 {
                     int j = 0;
@@ -139,6 +137,7 @@ namespace Lab_07
                     k++;
                 }
 
+                //Обновление значений x, y1, y2, ...
                 k = 0;
                 currValues = new Dictionary<string, FloatingPoint>();
                 foreach(var val in InitialСondition)
