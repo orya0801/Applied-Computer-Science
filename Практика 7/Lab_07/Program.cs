@@ -16,13 +16,13 @@ namespace Lab_07
             //Example 1
             Dictionary<string, FloatingPoint> initialVal1 = new Dictionary<string, FloatingPoint>()
             {
-                { "x", 2 },
-                { "y1", 1 },
-                { "y2", 1}
+                { "x", 0 },
+                { "y1", 3 },
+                { "y2", 0 }
             };
 
-            Expr func1 = (x * x - 2 * y1);
-            Expr func2 = (x  - 2 * y1 + 2 * y2);
+            Expr func1 = (-2 * y1 + 4 * y2);
+            Expr func2 = (- y1 + 3 * y2);
             var functions = new List<Expr>();
             functions.Add(func1);
             functions.Add(func2);
