@@ -11,9 +11,11 @@ namespace Lab_07
 {
     class RungeKutta
     {
-        //double k1, k2, k3, k4;
+        double[] k1, k2, k3, k4, new_val;
 
-        double k2_x, k2_y, k3_x, k3_y, k4_x, k4_y, delta_y, new_x, new_y;
+        Dictionary<string, FloatingPoint> k2_var, k3_var, k4_var;
+
+        double delta_y, new_x, new_y;
 
         string[] str_var = new string[] { "x", "y1", "y2" };
 
@@ -49,23 +51,109 @@ namespace Lab_07
         {
             currValues = InitialСondition;
 
-            //PrintInfo();
+            k1 = new double[Equation.Functions.Count];
+            k2 = new double[Equation.Functions.Count];
+            k3 = new double[Equation.Functions.Count];
+            k4 = new double[Equation.Functions.Count];
+            new_val = new double[Equation.Functions.Count];
+
 
             Console.WriteLine("i\tx\ty\t\tk1\t\tk2\t\tk3\t\tk4\t\tdelta y");
 
             for (int div = 0; div <= Divisions; div++)
             {
-                foreach(var function in Equation.Functions)
+                Console.Write($"{div}\t");
+
+                foreach (var val in currValues.Values)
+                    Console.Write($"{val.RealValue:0.00}\t");
+
+                for (int i = 0; i < Equation.Functions.Count; i++)
                 {
-                    Console.Write($"{div}\t");
+                    k1[i] = Step * Equation.Functions[i].Evaluate(InitialСondition).RealValue;
+                }
 
-                    //Console.Write($"{currValues["x"]:0.00}\t");
-                   // Console.Write($"{currValues["y"]:0.000000}\t");
+                for (int i = 0; i < Equation.Functions.Count; i++)
+                {
+                    int j = 0;
+                    k2_var = new Dictionary<string, FloatingPoint>();
+                    foreach (var val in currValues)
+                    {
+                        if (val.Key == "x")
+                            k2_var.Add("x", Expr.Parse((val.Value.RealValue + Step / 2)
+                                .ToString().Replace(",", ".")).RealNumberValue);
+                        else
+                        {
+                            k2_var.Add(val.Key, Expr.Parse((val.Value.RealValue + Step * k1[j] / 2)
+                                .ToString().Replace(",", ".")).RealNumberValue);
+                            j++;
+                        }
+                    }
+                    k2[i] = Step * Equation.Functions[i].Evaluate(k2_var).RealValue;
+                }
 
-                    var k1 = function.Evaluate(InitialСondition).RealValue;
-                    Console.WriteLine($"k1 = {k1}");
+                for (int i = 0; i < Equation.Functions.Count; i++)
+                {
+                    int j = 0;
+                    k3_var = new Dictionary<string, FloatingPoint>();
+                    foreach (var val in currValues)
+                    {
+                        if (val.Key == "x")
+                            k3_var.Add("x", Expr.Parse((val.Value.RealValue + Step / 2)
+                                .ToString().Replace(",", ".")).RealNumberValue);
+                        else
+                        {
+                            k3_var.Add(val.Key, Expr.Parse((val.Value.RealValue + k2[j] / 2)
+                                .ToString().Replace(",", ".")).RealNumberValue);
+                            j++;
+                        }
+                    }
+                    k3[i] = Step * Equation.Functions[i].Evaluate(k3_var).RealValue;
+                }
 
-                }        
+                for (int i = 0; i < Equation.Functions.Count; i++)
+                {
+                    int j = 0;
+                    k4_var = new Dictionary<string, FloatingPoint>();
+                    foreach (var val in currValues)
+                    {
+                        if (val.Key == "x")
+                            k4_var.Add("x", Expr.Parse((val.Value.RealValue + Step)
+                                .ToString().Replace(",", ".")).RealNumberValue);
+                        else
+                        {
+                            k4_var.Add(val.Key, Expr.Parse((val.Value.RealValue + k3[j])
+                                .ToString().Replace(",", ".")).RealNumberValue);
+                            j++;
+                        }
+                    }
+                    k4[i] = Step * Equation.Functions[i].Evaluate(k3_var).RealValue;
+                }
+
+                for (int i = 0; i < Equation.Functions.Count; i++)
+                {
+                    int j = 0;
+                    k4_var = new Dictionary<string, FloatingPoint>();
+                    foreach (var val in currValues)
+                    {
+                        if (val.Key == "x")
+                            k4_var.Add("x", Expr.Parse((val.Value.RealValue + Step)
+                                .ToString().Replace(",", ".")).RealNumberValue);
+                        else
+                        {
+                            k4_var.Add(val.Key, Expr.Parse((val.Value.RealValue + k3[j])
+                                .ToString().Replace(",", ".")).RealNumberValue);
+                            j++;
+                        }
+                    }
+                    k4[i] = Step * Equation.Functions[i].Evaluate(k3_var).RealValue;
+                }
+
+                for (int i = 0; i < Equation.Functions.Count; i++)
+                {
+                    
+                }
+
+                Console.WriteLine();
             }
 
 
