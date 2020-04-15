@@ -36,10 +36,46 @@ namespace Lab_07
             RungeKutta rungeKutta1 = 
                 new RungeKutta(equation1, initialVal1, section1, 10);
 
+            Func <double, double> answer1 = (4 * (-x).Exp() - (2 * x).Exp()).Compile("x");
+            Func <double, double> answer2= ((-x).Exp() - (2 * x).Exp()).Compile("x");
+            var answers = new List<Func<double, double>>();
+            answers.Add(answer1);
+            answers.Add(answer2);
+
+            PrintRealAnswer(answers, initialVal1, section1, 10);
 
             rungeKutta1.Solve();
 
             Console.ReadKey();
+        }
+
+        private static void PrintRealAnswer(List<Func<double, double>> answers,
+            Dictionary<string, FloatingPoint> initVal, double[] section, int div)
+        {
+            double h = (section[1] - section[0]) / div;
+            double curr_x = section[0];
+
+            Console.WriteLine("Точное решение:\n");
+
+            Console.Write("i\t");
+            foreach (var key in initVal.Keys)
+            {
+                Console.Write($"{key}\t");
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i <= div; i++)
+            {
+                Console.Write($"{i}\t");
+                Console.Write($"{curr_x:0.0000}\t");
+                foreach (var answer in answers)
+                    Console.Write($"{answer(curr_x):0.0000}\t");
+                Console.WriteLine();
+
+                curr_x += h;
+            }
+
+            Console.WriteLine();
         }
     }
 }

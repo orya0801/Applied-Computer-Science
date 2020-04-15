@@ -45,6 +45,8 @@ namespace Lab_07
 
         public void Solve()
         {
+            Console.WriteLine("Решение методом Рунге-Кутты:\n");
+
             currValues = InitialСondition;
 
             k1 = new double[Equation.Functions.Count];
@@ -84,7 +86,7 @@ namespace Lab_07
                                 .ToString().Replace(",", ".")).RealNumberValue);
                         else
                         {
-                            k2_var.Add(val.Key, Expr.Parse((val.Value.RealValue + Step * k1[j] / 2)
+                            k2_var.Add(val.Key, Expr.Parse((val.Value.RealValue + k1[j] / 2)
                                 .ToString().Replace(",", ".")).RealNumberValue);
                             j++;
                         }
@@ -127,7 +129,7 @@ namespace Lab_07
                             j++;
                         }
                     }
-                    k4[i] = Step * Equation.Functions[i].Evaluate(k3_var).RealValue;
+                    k4[i] = Step * Equation.Functions[i].Evaluate(k4_var).RealValue;
                 }
 
                 int k = 0;
