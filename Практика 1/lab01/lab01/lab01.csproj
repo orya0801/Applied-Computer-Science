@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Matrix.cs~RF9db53a.TMP" />
+  </ItemGroup>
+
 </Project>

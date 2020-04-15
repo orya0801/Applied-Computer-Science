@@ -9,3 +9,14 @@ E:\Прикладная информатика\Практика 1\lab01\lab01\ob
 E:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.AssemblyInfo.cs
 E:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.dll
 E:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.pdb
+D:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.exe
+D:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.deps.json
+D:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.runtimeconfig.json
+D:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.runtimeconfig.dev.json
+D:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.dll
+D:\Прикладная информатика\Практика 1\lab01\lab01\bin\Debug\netcoreapp3.0\lab01.pdb
+D:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.csprojAssemblyReference.cache
+D:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.AssemblyInfoInputs.cache
+D:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.AssemblyInfo.cs
+D:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.dll
+D:\Прикладная информатика\Практика 1\lab01\lab01\obj\Debug\netcoreapp3.0\lab01.pdb

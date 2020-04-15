@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Прикладная информатика\\Практика 1\\lab01\\lab01\\lab01.csproj",
+      "projectUniqueName": "D:\\Прикладная информатика\\Практика 1\\lab01\\lab01\\lab01.csproj",
       "projectName": "lab01",
-      "projectPath": "E:\\Прикладная информатика\\Практика 1\\lab01\\lab01\\lab01.csproj",
+      "projectPath": "D:\\Прикладная информатика\\Практика 1\\lab01\\lab01\\lab01.csproj",
       "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
-      "outputPath": "E:\\Прикладная информатика\\Практика 1\\lab01\\lab01\\obj\\",
+      "outputPath": "D:\\Прикладная информатика\\Практика 1\\lab01\\lab01\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\Microsoft\\Xamarin\\NuGet\\"

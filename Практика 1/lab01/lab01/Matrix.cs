@@ -27,6 +27,7 @@ namespace lab01
             {
                 for (int j = 0; j < columns; j++)
                 {
+                    Console.Write($"a[{i + 1}, {j + 1}] = ");
                     value = int.Parse(Console.ReadLine());
                     matrix[i, j] = value;
                 }
@@ -44,7 +45,7 @@ namespace lab01
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    Console.Write(matrix[i, j] + "\t");
+                    Console.Write(matrix[i, j] + " ");
                 }
                 Console.WriteLine();
             }
@@ -65,25 +66,26 @@ namespace lab01
             }
         }
 
-        static public void MatrixAddition(int[,] matrix1, int[,] matrix2)
+        static public int[,] MatrixAddition(int[,] matrix1, int[,] matrix2)
         {
             int[,] matrix;
             int rows_matrix1 = matrix1.GetUpperBound(0) + 1;
             int columns_matrix1 = matrix1.Length / rows_matrix1;
             int rows_matrix2 = matrix2.GetUpperBound(0) + 1;
             int columns_matrix2 = matrix2.Length / rows_matrix2;
+            matrix = new int[rows_matrix1, columns_matrix1];
             if (isMatricesValidForAddition(rows_matrix1, columns_matrix1, rows_matrix2, columns_matrix2))
             {
-                matrix = new int[rows_matrix1, columns_matrix1];
                 for (int i = 0; i < rows_matrix1; i++)
                     for (int j = 0; j < columns_matrix1; j++)
                     {
                         matrix[i, j] = matrix1[i, j] + matrix2[i, j];
                     }
-                Console.WriteLine("Результат сложения: ");
-                PrintMatrix(matrix);
             }
             else Console.WriteLine("Невозможно выполнить сложение, т.к. количество строк и столбцов первой матрицы не соответсвует количеству строк и столбцов второй матрицы");
+            Console.WriteLine("Результат сложения: ");
+            PrintMatrix(matrix);
+            return matrix;
         }
 
         //Функция, проверяющая совпадают ли размерности складываемых матриц
@@ -95,16 +97,16 @@ namespace lab01
                 return false;
         }
 
-        static public void MatrixMultiply(int[,] matrix1,  int[,] matrix2)
+        static public int[,] MatrixMultiply(int[,] matrix1,  int[,] matrix2)
         {
             int[,] matrix;
             int rows_matrix1 = matrix1.GetUpperBound(0) + 1;
             int columns_matrix1 = matrix1.Length / rows_matrix1;
             int rows_matrix2 = matrix2.GetUpperBound(0) + 1;
             int columns_matrix2 = matrix2.Length / rows_matrix2;
+            matrix = new int[rows_matrix1, columns_matrix2];
             if (isMatricesValidForMultiply(columns_matrix1, rows_matrix2))
             {
-                matrix = new int[rows_matrix1, columns_matrix2];
                 for (var i = 0; i < rows_matrix1; i++)
                 {
                     for (var j = 0; j < columns_matrix2; j++)
@@ -117,10 +119,10 @@ namespace lab01
                         }
                     }
                 }
-                Console.WriteLine("Результат умножения: ");
-                PrintMatrix(matrix);
             }
             else Console.WriteLine("Умножение не возможно! Количество столбцов первой матрицы не равно количеству строк второй матрицы.");
+
+            return matrix;
         }
 
         //Проверка совпдает ли количество столбцов первой матрицы с количеством строк второй матрицы:
@@ -254,5 +256,51 @@ namespace lab01
             return matrix;
         }
 
+
+        static public int[] SumInRow(int[,] array)
+        {
+            int[] sum = new int[array.GetLength(0)];
+
+            for(int i = 0; i < sum.Length; i++)
+            {
+                for(int j = 0; j < array.GetLength(1); j++)
+                {
+                    sum[i] += array[i, j];
+                }
+            }
+            Console.WriteLine("R = ");
+
+            for (int i = 0; i < sum.Length; i++)
+            {
+                Console.WriteLine($"{i}\t{sum[i]}");
+            }
+
+            return sum;
+        }
+
+        static public double[] GraphRang(int[] array)
+        {
+            double[] graphRang = new double[array.Length];
+            int sum = 0;
+
+            for(int i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+            }
+
+            Console.WriteLine($"sum = {sum}");
+
+            for(int i = 0; i < graphRang.Length; i++)
+            {
+                graphRang[i] = (double)array[i] / sum;
+            }
+
+            for (int i = 0; i < graphRang.Length; i++)
+            {
+                Console.WriteLine($"{graphRang[i]}");
+            }
+
+            return graphRang;
+        }
     }
 }
