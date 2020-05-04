@@ -194,19 +194,25 @@ namespace Lab_08
             // Решение системы уравнений методом Рунге-Кутта
             for(int i = 0; i <= 3; i++)
             {
-                k1 = h * f1(x_val[i], dy1[i], dy2[i]);
-                l1 = h * f2(x_val[i], dy1[i], dy2[i]);
-                k2 = h * f1(x_val[i] + h / 2, dy1[i] + k1 / 2, dy2[i] + l1 / 2);
-                l2 = h * f2(x_val[i] + h / 2, dy1[i] + k1 / 2, dy2[i] + l1 / 2);
-                k3 = h * f1(x_val[i] + h / 2, dy1[i] + k2 / 2, dy2[i] + l2 / 2);
-                l3 = h * f2(x_val[i] + h / 2, dy1[i] + k2 / 2, dy2[i] + l2 / 2);
-                k4 = h * f1(x_val[i] + h, dy1[i] + k3, dy2[i] + l3);
-                l4 = h * f2(x_val[i] + h, dy1[i] + k3, dy2[i] + l3);
+                k1 = h * f1(x_val[i], y1_val[i], y2_val[i]);
+                l1 = h * f2(x_val[i], y1_val[i], y2_val[i]);
+                k2 = h * f1(x_val[i] + h / 2, y1_val[i] + k1 / 2, y2_val[i] + l1 / 2);
+                l2 = h * f2(x_val[i] + h / 2, y1_val[i] + k1 / 2, y2_val[i] + l1 / 2);
+                k3 = h * f1(x_val[i] + h / 2, y1_val[i] + k2 / 2, y2_val[i] + l2 / 2);
+                l3 = h * f2(x_val[i] + h / 2, y1_val[i] + k2 / 2, y2_val[i] + l2 / 2);
+                k4 = h * f1(x_val[i] + h, y1_val[i] + k3, y2_val[i] + l3);
+                l4 = h * f2(x_val[i] + h, y1_val[i] + k3, y2_val[i] + l3);
 
-                dy1[i + 1] = y1_val[i + 1] = dy1[i] + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
-                dy2[i + 1] = y2_val[i + 1] = dy2[i] + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
+                y1_val[i + 1] = y1_val[i] + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+                y2_val[i + 1] = y2_val[i] + (l1 + 2 * l2 + 2 * l3 + l4) / 6;
 
                 x_val[i + 1] = x_val[i] + h;
+            }
+
+            for(int i = 0; i <= 3; i++)
+            {
+                dy1[i] = f1(x_val[i], y1_val[i], y2_val[i]);
+                dy2[i] = f2(x_val[i], y1_val[i], y2_val[i]);
             }
 
             double curr_y1, curr_y2;
