@@ -1,0 +1,11 @@
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\bin\Debug\netcoreapp3.0\Lab_09_2.exe
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\bin\Debug\netcoreapp3.0\Lab_09_2.deps.json
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\bin\Debug\netcoreapp3.0\Lab_09_2.runtimeconfig.json
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\bin\Debug\netcoreapp3.0\Lab_09_2.runtimeconfig.dev.json
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\bin\Debug\netcoreapp3.0\Lab_09_2.dll
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\bin\Debug\netcoreapp3.0\Lab_09_2.pdb
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\obj\Debug\netcoreapp3.0\Lab_09_2.csprojAssemblyReference.cache
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\obj\Debug\netcoreapp3.0\Lab_09_2.AssemblyInfoInputs.cache
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\obj\Debug\netcoreapp3.0\Lab_09_2.AssemblyInfo.cs
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\obj\Debug\netcoreapp3.0\Lab_09_2.dll
+D:\Прикладная информатика\Практика 9.2\Lab_09_2\Lab_09_2\obj\Debug\netcoreapp3.0\Lab_09_2.pdb

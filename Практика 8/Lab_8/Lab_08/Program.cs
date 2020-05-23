@@ -1,5 +1,4 @@
 ﻿using System;
-using MathNet.Symbolics;
 using Expr = MathNet.Symbolics.SymbolicExpression;
 
 namespace Lab_08
@@ -68,10 +67,6 @@ namespace Lab_08
             Console.WriteLine($"y1_2 = 1 + integrate (x + (1 + x^2/2)*(-x + x^3/3))dx from 0 to x = {expr_y1_2.ToString()}");
             Console.WriteLine($"y2_2 = 1 + integrate (x^2 + (1 + x^2 + x^4/4))dx from 0 to x = {expr_y2_2.ToString()}\n");
 
-            Console.WriteLine("Геометрически последовательные приближения представляют " +
-                "собой кривые yn = yn(x)(n = 1, 2, ...),проходящие через общую точку M0(x0, y0)." +
-                "\nВ таблице приведены кривые для 1-ого и 2-ого уравнения системы: \n");
-
             //Результат
             Console.WriteLine($"x\ty1_1\ty2_1\ty1_2\ty2_2");
 
@@ -88,7 +83,7 @@ namespace Lab_08
 
             #endregion
 
-            #region Zadanie 2
+
 
             Expr expr_f1 = - 2 * y1 + 4 * y2;
             Func<double, double, double, double> f1 = (expr_f1).Compile("x", "y1", "y2");
@@ -96,17 +91,22 @@ namespace Lab_08
             Func<double, double, double, double> f2 = (expr_f2).Compile("x", "y1", "y2");
 
             Console.WriteLine($"Уравнение:\ny1' = {expr_f1.ToString()}\ny2' = {expr_f2.ToString()}\n");
+            Console.WriteLine("Начальные условия: ");
+            Console.WriteLine("y1(0) = 3; y2(0) = 0;\n");
+
+            #region Zadanie 2
 
             Miln(f1, f2, 10, 0, 1, 3, 0);
 
             #endregion
-
 
             #region Zadanie 3
 
             Adams(f1, f2, 10, 0, 1, 3, 0);
 
             #endregion
+
+ 
         }
 
         private static void Adams(Func<double, double, double, double> f1, Func<double, double, double, double> f2,
@@ -256,7 +256,6 @@ namespace Lab_08
             {
                 Console.WriteLine($"{x_val[i]:0.00}\t{y1_val[i]:0.00}\t{y2_val[i]:0.00}");
             }
-
             Console.WriteLine();
         }
     }

@@ -4717,8 +4717,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Даниил\\.nuget\\packages\\": {},
-    "E:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Dan\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -4726,16 +4726,15 @@
       "projectUniqueName": "D:\\Прикладная информатика\\Практика 8\\Lab_8\\Lab_08\\Lab_08.csproj",
       "projectName": "Lab_08",
       "projectPath": "D:\\Прикладная информатика\\Практика 8\\Lab_8\\Lab_08\\Lab_08.csproj",
-      "packagesPath": "C:\\Users\\Даниил\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Dan\\.nuget\\packages\\",
       "outputPath": "D:\\Прикладная информатика\\Практика 8\\Lab_8\\Lab_08\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "E:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Даниил\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Dan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
@@ -4778,7 +4777,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
